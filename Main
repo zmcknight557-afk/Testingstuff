@@ -1,0 +1,17 @@
+<button id="myButton">Click me</button>
+<p id="status"></p>
+
+<script>
+  const button = document.getElementById('myButton');
+  const status = document.getElementById('status');
+
+  // Load saved state
+  const saved = localStorage.getItem('buttonClicked') === 'true';
+  status.textContent = saved ? "Button was clicked before!" : "Not clicked yet";
+
+  button.addEventListener('click', () => {
+    status.textContent = "Button clicked!";
+    localStorage.setItem('buttonClicked', 'true'); // Save state
+    console.log("Button was clicked!");
+  });
+</script>
